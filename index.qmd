@@ -1,0 +1,20 @@
+---
+title: "Massachusetts Income"
+---
+
+
+```{r}
+library(tidycensus)
+
+# Download median household income by census tract for Massachusetts
+ma_income <- get_acs(
+  geography = "tract",
+  variables = "B19013_001",  # Median household income variable
+  state = "MA",
+  year = 2022,  # Most recent ACS 5-year estimates
+  geometry = TRUE  # Set to TRUE if you want spatial data
+)
+
+# View the data
+head(ma_income)
+```
