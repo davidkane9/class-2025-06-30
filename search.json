@@ -1,0 +1,16 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Massachusetts Income",
+    "section": "",
+    "text": "library(tidycensus)\n\n# Download median household income by census tract for Massachusetts\nma_income &lt;- get_acs(\n  geography = \"tract\",\n  variables = \"B19013_001\",  # Median household income variable\n  state = \"MA\",\n  year = 2022,  # Most recent ACS 5-year estimates\n  geometry = TRUE  # Set to TRUE if you want spatial data\n)\n\nGetting data from the 2018-2022 5-year ACS\n\n# View the data\nhead(ma_income)\n\nSimple feature collection with 6 features and 5 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: -71.17166 ymin: 41.65111 xmax: -70.1685 ymax: 42.72127\nGeodetic CRS:  NAD83\n        GEOID                                                  NAME   variable\n1 25001011300    Census Tract 113; Barnstable County; Massachusetts B19013_001\n2 25001012601 Census Tract 126.01; Barnstable County; Massachusetts B19013_001\n3 25001013500    Census Tract 135; Barnstable County; Massachusetts B19013_001\n4 25009250100        Census Tract 2501; Essex County; Massachusetts B19013_001\n5 25009250500        Census Tract 2505; Essex County; Massachusetts B19013_001\n6 25009250900        Census Tract 2509; Essex County; Massachusetts B19013_001\n  estimate   moe                       geometry\n1   108889 12602 MULTIPOLYGON (((-70.24078 4...\n2    68143 18196 MULTIPOLYGON (((-70.3366 41...\n3   141453 21889 MULTIPOLYGON (((-70.48384 4...\n4    32684  9412 MULTIPOLYGON (((-71.16964 4...\n5    51317 11369 MULTIPOLYGON (((-71.17166 4...\n6    35119  8040 MULTIPOLYGON (((-71.15623 4..."
+  }
+]
