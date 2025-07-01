@@ -2,4 +2,4 @@
 title: "About"
 ---
 
-About this site
+I created this site as part of [Kane's Data Science Bootcamp](https://bootcamp.davidkane.info/).

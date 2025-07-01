@@ -22,7 +22,6 @@ ma_income <- get_acs(
 
 
 ```{r}
-# Create choropleth map
 ggplot(data = ma_income, aes(fill = estimate)) +
   geom_sf(color = "white", size = 0.1) +
   scale_fill_viridis_c(
@@ -38,6 +37,10 @@ ggplot(data = ma_income, aes(fill = estimate)) +
   theme(
     axis.text = element_blank(),
     axis.ticks = element_blank(),
-    panel.grid = element_blank()
+    panel.grid = element_blank(),
+    plot.title = element_text(size = 20),  # Larger title
+    legend.title = element_text(size = 16),  # Larger legend title
+    legend.text = element_text(size = 14),  # Larger legend text
+    plot.caption = element_text(size = 16)  # Larger caption
   )
 ```
