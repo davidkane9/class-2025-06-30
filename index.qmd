@@ -1,10 +1,14 @@
 ---
-title: "Massachusetts Income"
+execute: 
+  echo: false
 ---
 
 
 ```{r}
+#| message: false
+library(tidyverse)
 library(tidycensus)
+library(sf)
 
 # Download median household income by census tract for Massachusetts
 ma_income <- get_acs(
@@ -14,7 +18,26 @@ ma_income <- get_acs(
   year = 2022,  # Most recent ACS 5-year estimates
   geometry = TRUE  # Set to TRUE if you want spatial data
 )
+```
 
-# View the data
-head(ma_income)
+
+```{r}
+# Create choropleth map
+ggplot(data = ma_income, aes(fill = estimate)) +
+  geom_sf(color = "white", size = 0.1) +
+  scale_fill_viridis_c(
+    option = "magma", 
+    labels = scales::dollar_format(),
+    name = "Median Income"
+  ) +
+  theme_minimal() +
+  labs(
+    title = "Median Household Income by Census Tract in Massachusetts",
+    caption = "Source: ACS 5-Year Estimates (2023)"
+  ) +
+  theme(
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    panel.grid = element_blank()
+  )
 ```
